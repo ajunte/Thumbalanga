@@ -1,0 +1,16 @@
+{% extends 'accounts/main.html'%}
+
+{%block content%}
+Are you sure you want to delete {{member}}
+<form action="{% url 'delete_member' member.id%}" method="POST">
+
+    {% csrf_token%}
+
+    <a href="{% url 'home'%}"></a>
+    <input type="submit" name="Comfirm">
+
+
+</form>
+
+
+{%endblock content%}

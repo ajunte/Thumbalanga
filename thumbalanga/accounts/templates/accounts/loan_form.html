@@ -1,0 +1,23 @@
+{% extends 'accounts/main.html'%}
+
+{% block content%}
+
+<form action="" method="POST" style="width: 500px;">
+
+    {%csrf_token%}
+    {{form_Loan.as_p}}
+
+    <input type="submit" name="submit" value="Create Loan">
+
+
+
+
+
+
+</form>
+
+
+
+
+
+{% endblock content%}

@@ -1,0 +1,68 @@
+{% extends 'accounts/main.html'%}
+
+{% block content%}
+
+<div class="row">
+    <div class="col-md-7">
+        <div class="card card-body">
+            <h3 style="text-align:center ;">MEMBERS</h3>
+
+        </div>
+        <div class="card card-body">
+            <a href="{% url 'create_member'%}" class="btn btn-sm btn-primary btn-block">Add New Member</a>
+            <table class="table table-sm">
+                <th>No</th>
+                <th>Name</th>
+                <th>Phone</th>
+                {% for member in members %}
+                <tr>
+                    <td>{{member.id}}</td>
+                    <td>{{member.name}}</td>
+                    <td>{{member.phone}}</td>
+                    <td><a href="{% url 'update_member' member.id %}" class="btn btn-sm btn-info ">UPDATE</a></td>
+                    <td><a href="{% url 'delete_member' member.id %}" class="btn btn-sm btn-danger">DELETE</a></td>
+
+                </tr>
+                {% endfor%}
+
+            </table>
+
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="card card-body">
+            <h3 style="text-align:center ;">LOANS</h3>
+
+        </div>
+        <div class="card card-body">
+            <a href="{% url 'createLoan'%}" class="btn btn-sm btn-primary btn -block">Create New Loan Application</a>
+            <table class="table-sm">
+                <th> Date</th>
+                <th>Submited By</th>
+                <th>Amount </th>
+                <th>Status</th>
+                {% for loan in loans %}
+                <tr>
+                    <td>{{loan.date_applied}}</td>
+                    <td>{{loan.member}}</td>
+                    <td>{{loan.amount}}</td>
+                    <td>{{loan.status}}</td>
+                    <td><a href="" class="btn btn-sm btn-info ">VIEW</a></td>
+
+                </tr>
+                {% endfor%}
+                
+                    
+               
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock content%}
